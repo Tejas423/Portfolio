@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    overflow-x: hidden; /* Prevents horizontal scroll, allows vertical */
+}
+
+/* --- Navigation --- */
+nav{
+    width: 100%;
+    height: 10vh;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Ensure nav stays on top */
+}
+
+.nav-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo{
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.logo span{
+    color: #077b32;
+    text-shadow: 0 0 10px #077b32;
+}
+
+.nav-container .links{
+    display: flex;
+}
+
+.nav-container .links a{
+    position: relative;
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 550;
+    transition: 0.3s linear;
+}
+
+.nav-container .links a:hover{
+    color: #077b32;
+}
+
+.nav-container .links a::before{
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #077b32;
+    transition: 0.2s linear;
+}
+
+.nav-container .links a:hover::before{
+    width: 100%;
+}
+
+/* --- Hamburger Menu & Dropdown --- */
+.hamburg, .cancel{
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    color: white;
+    display: none; /* Hidden on desktop */
+    font-size: 1.8rem;
+}
+
+.dropdown{
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%); /* Start hidden above screen */
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 20px black;
+    transition: transform 0.3s ease-in-out;
+    padding-top: 60px; /* Space for the cancel button */
+}
+
+.dropdown .links a{
+    display: block; /* Use block for full-width links */
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px 0;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a:hover{
+    background-color: #077b32;
+}
+
+
+/* --- Main Section --- */
+section{
+    width: 100%;
+    min-height: 90vh; /* Use min-height to allow content to grow */
+    display: flex; /* Center the container vertically */
+    align-items: center;
+}
+
+.main-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+}
+
+.main-container .image{
+    width: 500px;
+    height: 500px; /* Make it a circle */
+    border-radius: 50%; /* Changed from 100% to 50% for a perfect circle */
+    overflow: hidden;
+    box-shadow: 0 0 50px #077b32;
+    flex-shrink: 0; /* Prevents the image from shrinking */
+}
+
+.main-container .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the circle without distortion */
+}
+
+.main-container .image:hover{
+    animation: animate 1.5s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%{ transform: scale(1); }
+    50%{ transform: scale(1.05); }
+    100%{ transform: scale(1); }
+}
+
+.main-container .content{
+    color: white;
+    width: 40%;
+}
+
+.content h1{
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+}
+
+.content h1 span{
+    color: #077b32;
+    text-shadow: 0 0 10px #077b32;
+}
+
+.content .typewriter{
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 600;
+    min-height: 50px; /* Prevent layout shift while typing */
+}
+
+.content .typewriter-text{
+    color: #077b32;
+    text-shadow: 0 0 10px #077b32;
+}
+
+.content p{
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    margin: 10px 0;
+}
+
+.social-links a{
+    text-decoration: none;
+}
+
+.social-links i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 0.2rem solid #077b32;
+    border-radius: 50%;
+    color: #077b32;
+    margin: 15px 15px 15px 0;
+    font-size: 1.5rem;
+    transition: 0.2s linear;
+}
+
+.social-links i:hover{
+    transform: scale(1.2);
+    color: black;
+    background-color: #077b32;
+    box-shadow: 0 0 10px #077b32;
+}
+
+.content .btn button{
+    width: 160px;
+    height: 50px;
+    margin-top: 30px;
+    background-color: #077b32;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+
+.content .btn button:hover{
+    transform: scale(1.1);
+    color: #077b32;
+    border: 2px solid #077b32;
+    background-color: transparent;
+    box-shadow: 0 0 40px #077b32;
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 992px) {
+    .main-container {
+        flex-direction: column; /* Stack image and content vertically */
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .main-container .image {
+        width: 300px; /* Smaller image on tablets */
+        height: 300px;
+    }
+
+    .main-container .content {
+        width: 90%; /* Use more width */
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .social-links i {
+        margin: 15px; /* Center the margin */
+    }
+    
+    .content .btn {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hide desktop nav and show hamburger icon */
+    .nav-container .links{
+        display: none;
+    }
+    .hamburg, .cancel{
+        display: block;
+    }
+
+    /* Adjust logo position */
+    .logo {
+        position: absolute;
+        left: 25px;
+        top: 20px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container .image {
+        width: 250px; /* Even smaller image for phones */
+        height: 250px;
+    }
+    
+    .content h1 {
+        font-size: 1.2rem;
+    }
+    
+    .content .typewriter {
+        font-size: 1.8rem;
+    }
+}
