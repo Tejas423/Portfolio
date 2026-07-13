@@ -3,64 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tejas Shinde — MTech student in Computer Science & Engineering at IIT Bombay. Explore my portfolio, projects, and get in touch.">
+    <meta name="keywords" content="Tejas Shinde, IIT Bombay, MTech, Computer Science, Portfolio, Developer">
+    <meta name="author" content="Tejas Shinde">
+    <title>Tejas Sanjay Shinde | Portfolio</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="./assets/style.css">
-    <title>My Portfolio</title>
 </head>
 <body>
-    <nav>
+    <!-- Particle Canvas Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- ===== Navigation ===== -->
+    <nav id="navbar">
         <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                My <span>Portfolio</span>
+            <a href="#hero" class="logo">Port<span>folio</span></a>
+            <div class="nav-links" id="nav-links">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="#">Home</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="./assets/about.html">About</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="./assets/education.html">Education</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="./assets/projects.html">Projects</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="./assets/contact.html">Contact</a></div>
-        </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-    </div>
-        <div class="dropdown">
-            <div class="links">
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Skills</a>
-                <a href="#">Service</a>
-                <a href="#">Contact</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-            </div>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
-    <section>
-        <div class="main-container">
-            <div class="image" data-aos="zoom-out" data-aos-duration="3000">
-                <img src="./assets/main.png" alt="">
-            </div>
-            <div class="content">
-                <div class="typewriter" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900">Hey I am <span class="typewriter-text"></span><label for="">|</label></div>
-                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">I'm a <span> MTech Student in Computer Science and Engineering Department at IIT Bombay</span></h1>  
-                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100"> </p>
-                <div class="social-links">
-                   <a href="https://github.com/Tejas423" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.instagram.com/tejas_.423/" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/tejas-shinde-89690832b/" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600"><i class="fa-brands fa-twitter"></i></a>
+
+    <!-- ===== Hero Section ===== -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-greeting reveal-up">Hello, I am</p>
+                <h1 class="hero-name reveal-up">
+                    <span class="typewriter-text" id="typewriter"></span><span class="cursor">|</span>
+                </h1>
+                <p class="hero-role reveal-up">
+                    <span class="gradient-text">SWE @ Bank of America || IIT Bombay M.Tech CSE'26</span>
+                </p>
+                <div class="hero-social reveal-up">
+                    <a href="https://github.com/Tejas423" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/tejas-shinde-89690832b/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tejas_.423/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="mailto:Tejasshinde423@gmail.com" class="social-icon" aria-label="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
                 </div>
-                <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1800">
-                    <a href="./assets/contact.html">
-                    <button>Contact me</button>
-                </a>
+                <div class="hero-cta reveal-up">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+            </div>
+            <div class="hero-image reveal-scale">
+                <div class="image-glow"></div>
+                <div class="image-ring"></div>
+                <img src="./assets/main.png" alt="Tejas Shinde">
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+
+    <!-- ===== About Section ===== -->
+    <section id="about" class="section">
+        <div class="section-container">
+            <h2 class="section-title reveal-up">About <span class="gradient-text">Me</span></h2>
+            <div class="about-grid">
+                <div class="about-image reveal-left">
+                    <div class="about-img-wrapper">
+                        <img src="./assets/picture.JPG" alt="Tejas Shinde">
+                    </div>
+                </div>
+                <div class="about-content reveal-right">
+                    <div class="glass-card">
+                        <h3>Tejas Sanjay Shinde</h3>
+                        <p>
+                        I am currently working as a <strong>Software Engineer at Bank of America</strong>.I enjoy solving complex problems and continuously expanding my
+                        expertise in modern software engineering and emerging technologies.
+                        </p>
+
+                        <p>
+                        I completed my Master of Technology(M.Tech) in Computer Science and Engineering from
+                        <strong>IIT Bombay</strong>, where I strengthened my foundation in computer science
+                        and developed a passion for building innovative software solutions.
+                        </p>
+
+                        <p>
+                        Outside of work, I enjoy playing video games, watching movies, and staying active
+                        through regular workouts.
+                        </p>
+                        <!-- <div class="about-stats">
+                            <div class="stat">
+                                <span class="stat-number">9.10</span>
+                                <span class="stat-label">CGPA at IITB</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">9.08</span>
+                                <span class="stat-label">CGPA at SGGS</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">2026</span>
+                                <span class="stat-label">Graduating</span>
+                            </div> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init({offset:0});
-    </script>
+
+    <!-- ===== Education Section ===== -->
+    <section id="education" class="section">
+        <div class="section-container">
+            <h2 class="section-title reveal-up">My <span class="gradient-text">Education</span></h2>
+            <div class="timeline">
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <div class="timeline-badge">2024 — 2026</div>
+                        <h3>M.Tech in Computer Science &amp; Engineering</h3>
+                        <h4><i class="fa-solid fa-building-columns"></i> Indian Institute of Technology Bombay</h4>
+                        <div class="timeline-detail">
+                            <span class="cgpa-badge">CGPA: 9.10/10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <div class="timeline-badge">2019 — 2023</div>
+                        <h3>Bachelor of Technology</h3>
+                        <h4><i class="fa-solid fa-building-columns"></i> SGGS Institute of Engineering &amp; Technology, Nanded</h4>
+                        <div class="timeline-detail">
+                            <span class="cgpa-badge">CGPA: 9.08/10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Projects Section ===== -->
+    <section id="projects" class="section">
+        <div class="section-container">
+            <h2 class="section-title reveal-up">My <span class="gradient-text">Projects</span></h2>
+            <p class="section-subtitle reveal-up">A selection of work I've built and contributed to</p>
+            <div class="projects-grid">
+                <div class="glass-card project-card reveal-up">
+                    <div class="project-icon"><i class="fa-solid fa-qrcode"></i></div>
+                    <h3>List Decoding of QR codes</h3>
+                    <p>Implemented list decoding algorithm in QR codes to exceed the highest standard error correction limit upto 40-44%.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">HTML</span>
+                    </div>
+                    <a href="https://github.com/Tejas423/List-Decoding-of-QR-codes" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+
+                <div class="glass-card project-card reveal-up">
+                    <div class="project-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Portfolio Website</h3>
+                    <p>A personal portfolio website built with HTML, CSS, and JavaScript featuring modern animations, glassmorphism design, and responsive layout.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/Tejas423/Portfolio" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+                
+                <div class="glass-card project-card reveal-up">
+                    <div class="project-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3>Open to Collaborate</h3>
+                    <p>Interested in collaborating on open-source projects or research work in Computer Science. Let's build something together!</p>
+                    <div class="project-tags">
+                        <span class="tag">Collaboration</span>
+                        <span class="tag">Open Source</span>
+                    </div>
+                    <a href="#contact" class="project-link">
+                        <i class="fa-solid fa-paper-plane"></i> Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Contact Section ===== -->
+    <section id="contact" class="section">
+        <div class="section-container">
+            <h2 class="section-title reveal-up">Get in <span class="gradient-text">Touch</span></h2>
+            <p class="section-subtitle reveal-up">Feel free to reach out for collaboration, inquiries, or just to say hello!</p>
+            <div class="contact-grid">
+                <a href="https://www.linkedin.com/in/tejas423/" class="glass-card contact-card reveal-up">
+                    <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+                    <h3>LinkedIn</h3>
+                    <p>Tejas423</p>
+                </a>
+                <a href="mailto:tejasshinde423@gmail.com" class="glass-card contact-card reveal-up">
+                    <div class="contact-icon"><i class="fa-brands fa-google"></i></div>
+                    <h3>Personal Email</h3>
+                    <p>tejasshinde423@gmail.com</p>
+                </a>
+                <a href="mailto:tejasshinde@cse.iitb.ac.in" class="glass-card contact-card reveal-up">
+                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <h3>CSE Department</h3>
+                    <p>tejasshinde@cse.iitb.ac.in</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-social">
+                <a href="https://github.com/Tejas423" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/tejas423/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/tejas_.423/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2026 Tejas Shinde. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
     <script src="./assets/script.js"></script>
 </body>
 </html>
